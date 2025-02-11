@@ -6,7 +6,7 @@
   <!-- 고정된 메뉴바 -->
   <h1 class="logo-bar con-min-width">
     <div class="text-align-center con">
-      <a href="#" class="logo-bar__logo">
+      <a href="/" class="logo-bar__logo">
         <span class="ico-1"><i class="fa-solid fa-plane"></i></span>
         <span>
         <img src="https://www.hollys.co.kr/websrc/images/layout/logo_210302.gif">
@@ -32,20 +32,47 @@
       </nav>
     </div>
   </h2>
-
+<!--
   <div id="app">
-    <!-- Sidebar에 동적으로 메뉴 전달 25.1.25.-->
+    Sidebar에 동적으로 메뉴 전달 25.1.25.--
     <Sidebar :menu="currentSidebarMenu" />
-    <router-view />
-  </div>
- 
+  <!-  <router-view />--
+
+</div>
+-->
+
 </header>
-<!-- Main Content 영역 -->
+</div>
+<!-- Main Content 영역 --
  <main>
-  <!-- 동적으로 변경될 콘텐츠 -->
+  <!- 동적으로 변경될 콘텐츠 --
   <router-view></router-view>
  </main>
 </div>
+-->
+
+<!--
+<div id="app">
+  <div class="sidebar">
+    <Sidebar :menu="currentSidebarMenu" />
+  </div>
+
+  <div class="main-content">
+    <router-view />
+  </div>
+</div>
+-->
+
+<div id="app">
+  
+    <Sidebar :menu="sbmenuItems" />
+  
+
+  <div class="main-content">
+    <router-view />
+  </div>
+</div>
+
 
 </template>
 
@@ -59,6 +86,15 @@ import Sidebar from './components/Sidebar.vue';
 const route = useRoute();
 
 const menuItems = [
+    { text: 'Menu', url: '/menu' },
+    { text: 'HOLLYS Mall', url: '/mall' },
+    { text: 'Membership', url: '/membership' },
+    { text: 'HOLLYS News', url: '/news' },
+    { text: 'Store', url: '/store' },
+    { text: 'HOLLYS is', url: '/about' },
+];
+
+const sbmenuItems = [
     { text: 'Menu', url: '/menu' },
     { text: 'HOLLYS Mall', url: '/mall' },
     { text: 'Membership', url: '/membership' },
@@ -87,7 +123,21 @@ const arr = [
 
 #app {
   display: flex;
+  height: 100vh; /* 전체 높이 차지 */
 }
+
+#app > .sidebar {
+  width: 20%;  /* 1/5 크기 */
+  min-width: 200px;
+  background-color: orange; /* 사이드바 배경색 (선택 사항) */
+}
+
+#app > .main-content {
+  width: 80%; /* 4/5 크기 */
+  padding: 20px;
+  background-color: #ffffff; /* 메인 영역 배경색 */
+}
+
 
 html {
   font-family: 'Indie Flower', cursive;
@@ -118,14 +168,15 @@ a {
 .block {
   display: block;
   white-space: nowrap;
-  font-size: 30px !important;
+  font-size: 20px !important;
 
 }
-@mdeia (max-width: 660px) {
-  .bolck {
+@media (max-width: 920px) {
+  .menu-bar__menu-box-1 .block {
     display: block;
     white-space: nowrap;
     font-size: 10px !important;
+    transition: font-size 0.3s ease-in-out; /* 부드러운 변화 */
   }
 }
 
@@ -202,6 +253,7 @@ padding: 0 10px; */
   font-weight: bold;
   padding: 10px 0;
   text-align: center;
+  transition: font-size 0.3s ease-in-out; /* 폰트크기 애니메이션 */
 }
 
 .menu-bar__menu-box-1 > ul > li:hover > a {
@@ -212,27 +264,27 @@ padding: 0 10px; */
 
 /* 커스텀 끝 */
 
-/* 작은 화면 (예: 모바일) */
+/* 작은 화면 (예: 모바일) 
 @media (max-width: 576px) {
   .menu-bar__menu-box-1 > ul > li {
-    width: 100%; /* 메뉴가 세로로 배치됩니다. */
+    width: 100%; /* 메뉴가 세로로 배치됩니다. 
   }
 }
 
-/* 중간 화면 (예: 태블릿) */
+/* 중간 화면 (예: 태블릿) 
 @media (min-width: 768px) and (max-width: 991px) {
   .menu-bar__menu-box-1 > ul > li {
-    width: calc(100% / 3); /* 태블릿에서는 3개의 메뉴가 한 줄에 배치됩니다. */
+    width: calc(100% / 3); /* 태블릿에서는 3개의 메뉴가 한 줄에 배치됩니다. 
   }
 }
 
-/* 큰 화면 (예: 데스크탑) */
+/* 큰 화면 (예: 데스크탑) 
 @media (min-width: 992px) {
   .menu-bar__menu-box-1 > ul > li {
-    width: calc(100% / 7); /* 큰 화면에서는 7개의 메뉴가 한 줄에 배치됩니다. */
+    width: calc(100% / 7); /* 큰 화면에서는 7개의 메뉴가 한 줄에 배치됩니다. 
   }
 }
-
+*/
 header {
   width: 90vw !important;
 }

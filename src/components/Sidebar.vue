@@ -5,7 +5,9 @@
         <li v-for="item in menu" :key="item">{{ item }}</li>
       </ul>
     </div>
-    <div>test</div>
+    <div>side bar menu1</div>
+    <div>side bar menu2</div>
+    <div>side bar menu3</div>
   </template>
   
   <script>
@@ -22,7 +24,7 @@
   <style scoped>
   .sidebar {
     width: 50px;
-    background-color: #f4f4f4;
+    background-color: #b72e2e;
     padding: 10px;
   }
   </style>
