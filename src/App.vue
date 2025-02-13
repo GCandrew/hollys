@@ -65,12 +65,12 @@
 
 <div id="app">
   
-    <Sidebar :menu="sbmenuItems" />
-  
+ 
 
-  <div class="main-content">
-    <router-view />
-  </div>
+
+<div class="main-content">
+  <router-view />
+</div>
 </div>
 
 
@@ -94,14 +94,7 @@ const menuItems = [
     { text: 'HOLLYS is', url: '/about' },
 ];
 
-const sbmenuItems = [
-    { text: 'Menu', url: '/menu' },
-    { text: 'HOLLYS Mall', url: '/mall' },
-    { text: 'Membership', url: '/membership' },
-    { text: 'HOLLYS News', url: '/news' },
-    { text: 'Store', url: '/store' },
-    { text: 'HOLLYS is', url: '/about' },
-];
+
 
 /*
 const arr = [
